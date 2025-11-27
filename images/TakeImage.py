@@ -4,7 +4,9 @@ class TakeImage(Image):
         super().__init__(**kwargs)
         self.zoom = zoom
 
-
+    def sendCaptureSignal (self):
+        return self.is_success
+    
     def storeImage(self, local_file: str):
         pass
 
