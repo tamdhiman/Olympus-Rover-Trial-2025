@@ -1,0 +1,54 @@
+open head:
+    import css
+    import external files
+close head
+open body:
+    div class = navBar:
+        div class = navBarDiv
+            button class = navBarButton, name = prevPage
+        div class = navBarDiv
+            button class = navBarButton, name = mainScreen
+        div class = navBarDiv
+            button class = navBarButton, name = liveFeed
+        div class = navBarDiv
+            button class = navBarButton, name = gallery
+        div class = navBarDiv
+            button class = navBarButton, name = displayImage
+        div class = navBarDiv
+            button class = navBarButton, name = nextPage
+    
+    div class = liveFeedDiv
+        # (Python):
+            IMG tag pointing to Flask route
+            IMG id = liveVideoStream, src = /video_feed
+    
+    div class = recentImageDiv:
+    if gallery is not empty:
+        mostRecentImage = get mostRecentImage
+        qrCodeStatus = get qrCodeStatus
+        imgName = get mostRecentImage Name
+
+        div class = imgName
+            output imgName
+        button class = viewImageButton, text = View Images
+
+        span class = qrCodeStatus
+            output qrCodeStatus //Will display if image is submittable or not
+    else: 
+        span class = centredtext
+            output "Capture image to see it displayed here"
+    
+    //PLUG MOUSE IN AND USE MIDDLE BUTTON TO INDENT ABOVE qrCodeStatus
+    div class = controlsDiv
+        button class = forwardKey, id = forwardKey, text = W
+        button class = leftKey, id = leftKey, text = A
+        button class = backwardKey, id = forwardKey, text = S
+        button class = rightKey, id = rightKey, text = D
+        button class = stopButton, id = stopButton, text = stop
+    
+    div class = takePhotoDiv
+        button class = takePhotoButton, id = takePhoto, text = TAKE takePhoto
+
+
+        
+
