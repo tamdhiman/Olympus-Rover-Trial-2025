@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Live Feed</title>
+        <link rel = "stylesheet" href = "/frontend/css/index.css">
+        <link rel = "stylesheet" href = "/frontend/css/livefeed.css">
+    </head>
+    <body style = "margin:0">
+    <!-- NAV BAR -->
+        <div class = "navBarIndexLeft">
+            <button class = "switchPageButton" onclick = "window.location.href = 'mainscreen.html'"><</button>
+        </div>
+        <div class = "navBar">
+            <button class = "navBarButton" onclick = "window.location.href = 'mainscreen.html'" >MAIN</button>
+            <button class = "navBarButton" onclick = "window.location.href = 'livefeed.html'" disabled>LIVE FEED</button>
+            <button class = "navBarButton" onclick = "window.location.href = 'gallery.html'">GALLERY</button>
+            <button class = "navBarButton" onclick = "window.location.href = 'gallery.html'">DISPLAY IMAGE</button>
+        </div>
+        <div class = "navBarIndexRight">
+            <button class = "switchPageButton" onclick = "window.location.href = 'gallery.html'">></button>
+        </div>
+        <div class = "mainContainer">
+            <div class = "liveFeed">
+                <span class = "placeholderText">WAITING FOR FEED</span>
+                <img id = "videoFeed" src = "/video_feed">
+            </div>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,32 @@
+.mainContainer {
+    position: absolute;
+    left:2vw;
+    top:4vw;
+    height: 90vh;
+    border: 2px solid black;
+    width: 96vw;
+}
+.gallery {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.galleryBox {
+    display: flex;
+    flex-direction: column;
+    width: 22.9%;
+    margin: 1dvw 1dvw;
+    position: relative;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid white;
+    height: 40dvh;
+    box-sizing: border-box;
+}
+
+.galleryImage {
+    width:100%;
+    height: calc(0.5625*width);
+    position: relative;
+}
