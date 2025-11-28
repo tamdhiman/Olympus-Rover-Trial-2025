@@ -16,7 +16,7 @@ def getImages():
 
 def galleryPage():
 
-    return render_templates('gallery.html', image_id = image_id, qrScan = qrScan)
+    return render_template('gallery.html', image_id = image_id, qrScan = qrScan)
 
 if __name__ == "__main__":
     app.run

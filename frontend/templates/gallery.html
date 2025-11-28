@@ -3,7 +3,7 @@
     <head>
         <title>Live Feed</title>
         <link rel = "stylesheet" href = "/frontend/css/index.css">
-        <link rel = "stylesheet" href = "/frontend/css/livefeed.css">
+        <link rel = "stylesheet" href = "/frontend/css/gallery.css">
     </head>
     <body style = "margin:0">
     <!-- NAV BAR -->
@@ -22,7 +22,7 @@
         <div class = "mainContainer">
             <div class="gallery" style="display:flex; max-width:100dvw; flex-wrap: wrap">
                 {% if image_name %}
-                    {% for image in image_name &}
+                    {% for image in image_name %}
                         <div class = "galleryBox" style="display:flex; flex-direction:column;">
                             <div style="margin-bottom: auto;">
                                 <image class = "galleryImage" src = "{{ image }}"></image>
@@ -31,7 +31,7 @@
                         </div>
                     {% endfor %}
                 {% else %}
-                    <p>TAKE IMAGE TO SEE IT DISPLAYED HERE</p>
+                    <span class = "centredText">TAKE IMAGE TO SEE IT DISPLAYED HERE</span>
                 {% endif %}
             </div>
 

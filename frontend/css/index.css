@@ -7,7 +7,14 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+.mainContainer {
+    position: absolute;
+    left:2vw;
+    top:4vw;
+    height: 90vh;
+    border: 2px solid black;
+    width: 96vw;
+}
 .navBarIndexLeft {
     position: absolute;
     top:0;
@@ -53,5 +60,11 @@ body {
 }
 button:hover {
     cursor:pointer;
+}
+
+.placeholderText {
+    color: white;
+    position: absolute;
+    z-index: 1;
 }
 
