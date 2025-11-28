@@ -1,14 +1,16 @@
 import os
 from flask import Flask, jsonify, render_template
 
-imageFolder = os.path.join(os.getcwd(), 'images')
+base = os.path.dirname(os.path.abspath(__file__))
+imageFolder = os.path.join(base, 'static', 'images')
 app = Flask(__name__)
 
-@app.route('/mainscreen')
+@app.route('/mainscreen.html')
 def getLiveFeed():
     #Some code to get the live feed?
     return render_template('mainscreen.html')
-@app.route("/gallery")
+
+@app.route("/gallery.html")
 def getImages():
     imageFiles = os.listdir(imageFolder)
     images = []
@@ -18,9 +20,10 @@ def getImages():
     
     for file in imageFiles:
         if file.lower().endswith('.png'):
-            images.append(file)
+            filePath = f"/static/images/{file}"
+            images.append(filePath)
     image_name = jsonify(images)
-    return render_template('gallery.html', image_name = image_name)
+    return render_template('gallery.html', image_name = images)
 
 @app.route("/displayImage/<int:imageID>")
 def displayImage(imageID):

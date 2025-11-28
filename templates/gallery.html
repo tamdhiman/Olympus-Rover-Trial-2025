@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Live Feed</title>
-        <link rel = "stylesheet" href = "/frontend/css/index.css">
-        <link rel = "stylesheet" href = "/frontend/css/gallery.css">
+        <link rel = "stylesheet" href = "/static/css/index.css">
+        <link rel = "stylesheet" href = "/static/css/gallery.css">
     </head>
     <body style = "margin:0">
     <!-- NAV BAR -->
@@ -24,10 +24,8 @@
                 {% if image_name %}
                     {% for image in image_name %}
                         <div class = "galleryBox" style="display:flex; flex-direction:column;">
-                            <div style="margin-bottom: auto;">
                                 <image class = "galleryImage" src = "{{ image }}"></image>
                                 <span class = "qrCodeText"></span>
-                            </div>
                         </div>
                     {% endfor %}
                 {% else %}

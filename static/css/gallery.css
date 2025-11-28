@@ -1,4 +1,13 @@
 
+.mainContainer {
+    position: absolute;
+    left:2vw;
+    top: 4vw;
+    height:fit-content;
+    border: 2px solid black;
+    width: 96vw;
+}
+
 .gallery {
     display: flex;
     flex-direction: row;
@@ -13,13 +22,14 @@
     position: relative;
     padding: 20px;
     border-radius: 20px;
-    border: 1px solid white;
+    border: 1px solid black;
     height: 30vw;
     box-sizing: border-box;
 }
 
 .galleryImage {
-    width:100%;
+    width:30vw;
+    border-radius: 20px;
     height: calc(0.5625*width);
     position: relative;
 }
