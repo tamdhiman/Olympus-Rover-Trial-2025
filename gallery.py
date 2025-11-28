@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/mainscreen.html')
 def getLiveFeed():
     #Some code to get the live feed?
-    return render_template('mainscreen.html')
+    return render_template('/mainscreen.html')
 
 @app.route("/gallery.html")
 def getImages():
@@ -16,7 +16,7 @@ def getImages():
     images = []
 
     if not imageFiles:
-        return render_template('gallery.html', image_name=jsonify([]))
+        return render_template('gallery.html', image_name=[])
     
     for file in imageFiles:
         if file.lower().endswith('.png'):
@@ -25,7 +25,7 @@ def getImages():
     image_name = jsonify(images)
     return render_template('gallery.html', image_name = images)
 
-@app.route("/displayImage/<int:imageID>")
+@app.route("/displayimage.html")
 def displayImage(imageID):
     image_name = imageID
     #Code to get QR Code description (insert later)
