@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Live Feed</title>
+        <link rel = "stylesheet" href = "/static/css/index.css">
+        <link rel = "stylesheet" href = "/static/css/gallery.css">
+    </head>
+    <body style = "margin:0">
+    <!-- NAV BAR -->
+        <div class = "navBarIndexLeft">
+            <button class = "switchPageButton" onclick = "window.location.href = 'livefeed.html'"><</button>
+        </div>
+        <div class = "navBar">
+            <button class = "navBarButton" onclick = "window.location.href = 'mainscreen.html'">MAIN</button>
+            <button class = "navBarButton" onclick = "window.location.href = 'livefeed.html'">LIVE FEED</button>
+            <button class = "navBarButton" onclick = "window.location.href = 'gallery.html'" disabled>GALLERY</button>
+            <button class = "navBarButton" onclick = "window.location.href = 'displayimage.html'">DISPLAY IMAGE</button>
+        </div>
+        <div class = "navBarIndexRight">
+            <button class = "switchPageButton" onclick = "window.location.href = 'displayimage.html'">></button>
+        </div>
+        <div class = "mainContainer">
+            <div class="gallery" style="display:flex; max-width:100dvw; flex-wrap: wrap">
+                {% if image_name %}
+                    {% for image in image_name %}
+                        <div class = "galleryBox" style="display:flex; flex-direction:column;">
+                                <image class = "galleryImage" src = "{{ image }}"></image>
+                                <span class = "qrCodeText"></span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <span class = "centredText">TAKE IMAGE TO SEE IT DISPLAYED HERE</span>
+                {% endif %}
+            </div>
+
+        </div>
+    </body>
+</html>

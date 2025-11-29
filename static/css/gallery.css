@@ -1,0 +1,44 @@
+
+.mainContainer {
+    position: absolute;
+    left:2vw;
+    top: 4vw;
+    height:fit-content;
+    border: 2px solid black;
+    width: 96vw;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.galleryBox {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin: 1dvw 1dvw;
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid black;
+    height: 30vw;
+    box-sizing: border-box;
+}
+
+.galleryImage {
+    width:29.89vw;
+    border-radius: 20px 20px 0 0 ;
+    position: relative;
+}
+
+.centredText {
+    width:96vw;
+    font-size: 4rem;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+}
