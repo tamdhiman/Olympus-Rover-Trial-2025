@@ -1,0 +1,41 @@
+<!-- Write a base template for each page on the website, for example a navigation menu -->
+{% block doc -%} 
+   {%- block html %} 
+      {%- block head %} 
+         <title>Main Screen</title>
+         {%- block metas %} 
+         {%- endblock metas %} 
+         {%- block styles %} 
+            <link rel = 'stylesheet' href="{{ url_for('static', filename='styles.css') }}">
+         {%- endblock styles %} 
+      {%- endblock head %} 
+      {% block body -%} 
+         {% block navbar %}
+          <!-- NAV BAR
+           Need to add functionality to the url routes
+           Need to handle visibilty for switchpagebuttons-->
+         <div class="navBarIndexLeft">
+         <button class="switchPageButton" ></button>
+         </div>
+         <div class="navBar">
+            <a class="navBarButton" href="{{ url_for('mainPage') }}">MAIN</a>
+            <a class="navBarButton" href="{{ url_for('liveFeedPage') }}">LIVE FEED</a>
+            <a class="navBarButton" href="{{ url_for('galleryPage') }}">GALLERY</a>
+            <a class="navBarButton" href="{{ url_for('displayImagePage') }}">DISPLAY IMAGE</a>
+         </div>
+
+         <div class="navBarIndexRight">
+            <button class="switchPageButton">></button>
+         </div>
+         {%- endblock navbar %} 
+         {% block content -%} 
+         {%- endblock content %} 
+         {% block scripts %} 
+            <!-- Any Java Scripts we use 
+             <script type = "text/javascript" src = "../js/main.js"></script>
+             -->
+         {%- endblock scripts %} 
+      {%- endblock body %} 
+   {%- endblock html %} 
+{% endblock doc -%}
+

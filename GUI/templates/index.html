@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class = "mainContainer">
+        <!-- LIVE FEED -->
+        <div class = "liveFeed">
+            <span class = "placeholderText">WAITING FOR FEED</span>
+            <img id = "videoFeed" src = "/video_feed">
+        </div>
+        <!-- MOST RECENT IMAGE -->
+        <div class = "recentImage">
+            <div class = "headerRow">
+                <span class = "imageName" id = "imageName">
+                    IMAGE_0
+                </span>
+                <div class = "viewImagesButton">VIEW IMAGES</div>
+            </div>
+
+            <span class = "qrCodeStatus" id = "qrCodeStatus">
+                QR CODE STATUS:
+            </span>
+        </div>
+        <!-- CONTROLS -->
+        <div class = "Controls">
+            <button class = "controlButton" id = "forwardButton">W</button>
+            <button class = "controlButton" id = "leftButton">A</button>
+            <button class = "controlButton" id = "reverseButton">S</button>
+            <button class = "controlButton" id = "rightButton">D</button>
+            <button class = "controlButton" id = "controlButton">STOP</button>
+        </div>
+        <!-- TAKE PHOTO -->
+        <div class = "takePhotoDiv">
+            <button class = "takePhotoButton" id = "takePhotoButton">
+                TAKE PHOTO
+            </button>
+        </div>
+    </div>
+{% endblock %}
