@@ -1,9 +1,12 @@
 from flask import Flask, jsonify, render_template, request, make_response, redirect, session, url_for, flash
 from flask_wtf.csrf import CSRFProtect, generate_csrf, CSRFError
 from datetime import datetime
+from backend_py.Gallery import Gallery
+from backend_py.Image import Image
 import os
 
 app = Flask(__name__)
+gallery = Gallery()
 csrf = CSRFProtect(app)
 app.config['SECRET_KEY'] = "I wish I could fly"
 
@@ -27,20 +30,16 @@ def mainPage():
 def liveFeedPage():
    return render_template('liveFeed.html')
 
+
+
+gallery.add_image(Image("1", "/static/images/test_1.jpg"))
+gallery.add_image(Image("2", "/static/images/test_2.jpg"))
+gallery.add_image(Image("3", "/static/images/test_3.jpg"))
+gallery.add_image(Image("4", "/static/images/test_4.jpg"))
+
 @app.route("/gallery.html")
 def galleryPage():
-   imageFiles = os.listdir(imageFolder)
-   images = []
-
-   if not imageFiles:
-      return render_template('gallery.html', image_name=[])
-    
-   for file in imageFiles:
-      if file.lower().endswith('.png'):
-         filePath = f"/static/images/{file}"
-         images.append(filePath)
-   image_name = jsonify(images)   
-         
+   images = [img.file_path for img in gallery.images]
    return render_template('gallery.html', image_name = images)
 
 @app.route('/image/item_id', methods = ['GET'])

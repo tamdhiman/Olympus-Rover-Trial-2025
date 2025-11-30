@@ -1,6 +1,8 @@
 import os
 from flask import Flask, jsonify, render_template
 
+#can be deleted now??
+
 base = os.path.dirname(os.path.abspath(__file__))
 imageFolder = os.path.join(base, 'static', 'images')
 app = Flask(__name__)
