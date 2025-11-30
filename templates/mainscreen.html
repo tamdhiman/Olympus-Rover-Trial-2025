@@ -1,6 +1,26 @@
-{% extends "base.html" %}
-
-{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Main Screen</title>
+        <link rel = "stylesheet" href = "/static/css/index.css">
+        <link rel = "stylesheet" href = "/static/css/mainscreen.css">
+        <script type = "text/javascript" src = "/js/main.js"></script>
+    </head>
+    <body style = "margin: 0">
+        <!-- NAV BAR -->
+        <div class = "navBarIndexLeft">
+            <button class = "switchPageButton" disabled><</button>
+        </div>
+        <div class = "navBar">
+            <button class = "navBarButton" onclick = "window.location.href = 'gallery'" disabled>MAIN</button>
+            <button class = "navBarButton" onclick = "window.location.href = 'liveFeed.html'">LIVE FEED</button>
+            <button class = "navBarButton" onclick = "window.location.href = 'gallery.html'">GALLERY</button>
+            <button class = "navBarButton" onclick = "window.location.href = 'gallery.html'">DISPLAY IMAGE</button>
+        </div>
+        <div class = "navBarIndexRight">
+            <button class = "switchPageButton">></button>
+        </div>
+        
         <div class = "mainContainer">
             <!-- LIVE FEED -->
             <div class = "liveFeed">
@@ -37,4 +57,6 @@
                 </button>
             </div>
         </div>
-{% endblock %}
+    </body>
+
+</html>

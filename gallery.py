@@ -6,7 +6,7 @@ imageFolder = os.path.join(base, 'static', 'images')
 app = Flask(__name__)
 
 @app.route('/mainscreen.html')
-def getLiveFeed():
+def getMainScreen():
     #Some code to get the live feed?
     return render_template('/mainscreen.html')
 
@@ -24,6 +24,11 @@ def getImages():
             images.append(filePath)
     image_name = jsonify(images)
     return render_template('gallery.html', image_name = images)
+
+@app.route("/livefeed.html")
+def getLiveFeed():
+    #Some more code to get live feed
+    return render_template('livefeed.html')
 
 @app.route("/displayimage.html")
 def displayImage(imageID):

@@ -6,8 +6,9 @@ html{
    /*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
 }
 
-
-
+body{
+   margin:0;
+}
 /* Navigation Menu */
 
 nav {
@@ -86,6 +87,7 @@ button:hover {
    background-color: black;
    border: 2px solid #333;
    display: flex;
+   height:100%;
    align-items: center;
    justify-content: center;
    position: relative;
@@ -157,14 +159,21 @@ button:hover {
 
 /* 3. Controls (WASD) */
 .Controls {
-   grid-column: 1;
-   grid-row: 2;
-   border: 2px solid black;
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: repeat(3, 1fr);
-   gap: 5px;
-   padding: 10px;
+    display: grid;
+    grid-row: 2;
+    grid-template-rows: 2fr 1fr;
+
+}
+.topControls {
+    grid-column: 1;
+    grid-row: 1;
+    
+    border-bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5px;
+    padding: 10px;
 }
 .stopButtonControl {
 
@@ -224,3 +233,59 @@ button:hover {
    transform: translateY(4px);
    box-shadow: none;
 }
+
+.mainContainerLiveFeed {
+    position: absolute;
+    left:2vw;
+    top: 4vw;
+    height:90vh;
+    border: 2px solid black;
+    width: 96vw;
+}
+
+.mainContainerGallery {
+    position: absolute;
+    left:2vw;
+    top: 4vw;
+    height:fit-content;
+    min-height: 90vh;
+    border: 2px solid black;
+    width: 96vw;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.galleryBox {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin: 1dvw 1dvw;
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid black;
+    height: 30vw;
+    box-sizing: border-box;
+}
+
+.galleryImage {
+    width:29.89vw;
+    border-radius: 20px 20px 0 0 ;
+    position: relative;
+}
+
+.centredText {
+    width:96vw;
+    font-size: 4rem;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+

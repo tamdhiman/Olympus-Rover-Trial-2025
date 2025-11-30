@@ -20,22 +20,4 @@
             <button class = "switchPageButton" onclick = "window.location.href = 'displayImage.html'">></button>
         </div>
         <div class = "mainContainer">
-            <div class="gallery" style="display:flex; max-width:100dvw; flex-wrap: wrap">
-                {% if image_name %}
-                    {% for image in image_name %}
-                        <div class = "galleryBox" style="display:flex; flex-direction:column;">
-                                <image class = "galleryImage" src = "{{ image }}"></image>
-                                <span class = "qrCodeText"></span>
-                                <form style = "display:none" method = "POST">
-                                    
-                                </form>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <span class = "centredText">TAKE IMAGE TO SEE IT DISPLAYED HERE</span>
-                {% endif %}
-            </div>
-
-        </div>
-    </body>
-</html>
+            {% if image_name %}
