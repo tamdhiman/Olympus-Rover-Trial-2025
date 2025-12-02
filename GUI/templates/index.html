@@ -28,7 +28,7 @@
                 <button class = "controlButton" id = "reverseButton">S</button>
                 <button class = "controlButton" id = "rightButton">D</button>
             </div>
-            <button class = "controlButton" id = "controlButton">STOP</button> 
+            <button class = "controlButton" id = "stopButton">STOP</button> 
         </div>
         <!-- TAKE PHOTO -->
         <div class = "takePhotoDiv">
@@ -40,12 +40,48 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
     const controlButtons = document.querySelectorAll(".controlButton");
+    const photoButton = document.querySelector('#takePhotoButton');
 
-      controlButtons.forEach(button => {
+    controlButtons.forEach(button => {
             button.addEventListener("click", () => {
                 move(button.id);
             });
         });
+
+    document.addEventListener("keydown", function(event) {
+    switch (event.key.toLowerCase()) {
+        case "w":
+        case "arrowup":
+            move("forwardButton");
+            break;
+
+        case "a":
+        case "arrowleft":
+            move("leftButton");
+            break;
+
+        case "s":
+        case "arrowdown":
+            move("reverseButton");
+            break;
+
+        case "d":
+        case "arrowright":
+            move("rightButton");
+            break;
+
+        case " ":  
+            move("stopButton");
+            break;
+            
+        default:
+            break;
+    }
+});
+
+    photoButton.addEventListener("click", () => {
+            takePhoto();
+    });
 
     function move(buttonId) {
        fetch("/rover_movement", {
@@ -55,6 +91,19 @@
                     "X-CSRFToken": "{{ csrf_token }}"
                 },
                 body: JSON.stringify({ button_id: buttonId })
+            })
+            .then(response => response.json())
+            .then(data => console.log("Python response:", data))
+            .catch(err => console.error("Error:", err));
+        }
+
+    function takePhoto() {
+       fetch("/rover_photo_capture", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
             })
             .then(response => response.json())
             .then(data => console.log("Python response:", data))
