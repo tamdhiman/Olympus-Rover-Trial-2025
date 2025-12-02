@@ -1,40 +1,66 @@
 {% extends "base.html" %}
 
 {% block content %}
-        <div class = "mainContainer">
-            <!-- LIVE FEED -->
-            <div class = "liveFeed">
-                <span class = "placeholderText">WAITING FOR FEED</span>
-                <img id = "videoFeed" src = "/video_feed">
-            </div>
-            <!-- MOST RECENT IMAGE -->
-            <div class = "recentImage">
-                <div class = "headerRow">
-                    <span class = "imageName" id = "imageName">
-                        IMAGE_0
-                    </span>
-                    <div class = "viewImagesButton" onclick = "window.location.href = 'gallery.html'">VIEW IMAGES</div>
-                </div>
-
-                <span class = "qrCodeStatus" id = "qrCodeStatus">
-                    QR CODE STATUS:
-                </span>
-            </div>
-            <!-- CONTROLS -->
-            <div class = "Controls">
-                <div class = "topControls">
-                    <button class = "controlButton" id = "forwardButton">W</button>
-                    <button class = "controlButton" id = "leftButton">A</button>
-                    <button class = "controlButton" id = "reverseButton">S</button>
-                    <button class = "controlButton" id = "rightButton">D</button>
-                </div>
-                <button class = "controlButton" id = "controlButton">STOP</button> 
-            </div>
-            <!-- TAKE PHOTO -->
-            <div class = "takePhotoDiv">
-                <button class = "takePhotoButton" id = "takePhotoButton">
-                    TAKE PHOTO
-                </button>
-            </div>
+    <div class = "mainContainer">
+        <!-- LIVE FEED -->
+        <div class = "liveFeed">
+            <span class = "placeholderText">WAITING FOR FEED</span>
+            <img id = "videoFeed" src = "/video_feed">
         </div>
+        <!-- MOST RECENT IMAGE -->
+        <div class = "recentImage">
+            <div class = "headerRow">
+                <span class = "imageName" id = "imageName">
+                    IMAGE_0
+                </span>
+                <div class = "viewImagesButton" onclick = "window.location.href = 'gallery.html'">VIEW IMAGES</div>
+            </div>
+
+            <span class = "qrCodeStatus" id = "qrCodeStatus">
+                QR CODE STATUS:
+            </span>
+        </div>
+        <!-- CONTROLS ADD KEYBOARD INTERUPT -->
+        <div class = "Controls">
+            <div class = "topControls">
+                <button class = "controlButton" id = "forwardButton">W</button>
+                <button class = "controlButton" id = "leftButton">A</button>
+                <button class = "controlButton" id = "reverseButton">S</button>
+                <button class = "controlButton" id = "rightButton">D</button>
+            </div>
+            <button class = "controlButton" id = "controlButton">STOP</button> 
+        </div>
+        <!-- TAKE PHOTO -->
+        <div class = "takePhotoDiv">
+            <button class = "takePhotoButton" id = "takePhotoButton">
+                TAKE PHOTO
+            </button>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const controlButtons = document.querySelectorAll(".controlButton");
+
+      controlButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                move(button.id);
+            });
+        });
+
+    function move(buttonId) {
+       fetch("/rover_movement", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                body: JSON.stringify({ button_id: buttonId })
+            })
+            .then(response => response.json())
+            .then(data => console.log("Python response:", data))
+            .catch(err => console.error("Error:", err));
+        }
+    });
+  </script>
+
 {% endblock %}

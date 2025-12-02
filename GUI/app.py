@@ -18,24 +18,20 @@ imageFolder = os.path.join(base, 'static', 'images')
 def handle_csrf_error(e):
     return redirect('/')
 
+
+# HTML PAGES
+
 @app.route('/')
 def mainPage():
    # csrf_token = generate_csrf()
    # user_cookie = request.cookies.get('user_cookie')
-   return render_template('index.html',)
-   
-
+   csrf_token = generate_csrf()
+   return render_template('index.html', csrf_token = csrf_token)
 
 @app.route('/liveFeed.html', methods = ['GET'])
 def liveFeedPage():
    return render_template('liveFeed.html')
 
-
-
-gallery.add_image(Image("1", "/static/images/test_1.jpg"))
-gallery.add_image(Image("2", "/static/images/test_2.jpg"))
-gallery.add_image(Image("3", "/static/images/test_3.jpg"))
-gallery.add_image(Image("4", "/static/images/test_4.jpg"))
 
 @app.route("/gallery.html")
 def galleryPage():
@@ -46,6 +42,22 @@ def galleryPage():
 def displayImagePage():
    return render_template('displayImage.html')
 
+
+# Call Methods
+
+@app.route('/rover_movement', methods = ['POST'])
+def move_rover():
+   button_id = request.json.get("button_id")
+   print("Python received button press:", button_id)
+
+   # Add movemenet functionality
+   
+   return jsonify({"status": "ok"})
+
+gallery.add_image(Image("1", "/static/images/test_1.jpg"))
+gallery.add_image(Image("2", "/static/images/test_2.jpg"))
+gallery.add_image(Image("3", "/static/images/test_3.jpg"))
+gallery.add_image(Image("4", "/static/images/test_4.jpg"))
 
 
 if __name__ == '__main__':
