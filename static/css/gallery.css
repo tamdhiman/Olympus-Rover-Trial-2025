@@ -22,7 +22,9 @@
     position: relative;
     border-radius: 20px;
     border: 1px solid black;
-    height: 30vw;
+    /* Changed for varying heights, maybe change later??/? */
+    min-height: 30vw;
+    height: relative;
     box-sizing: border-box;
 }
 
